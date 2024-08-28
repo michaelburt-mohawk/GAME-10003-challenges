@@ -2,6 +2,16 @@
 using System;
 using System.Numerics;
 
+// MODULE 2 CHALLENGE
+
+// Create a graphic design using basic shapes
+// Some inspiration here:
+// https://thumbs.dreamstime.com/z/neo-modernism-artwork-pattern-made-abstract-vector-geometric-shapes-forms-simple-form-bold-graphic-design-useful-web-234531432.jpg?w=992
+
+// HARD CHALLENGE
+// Get some input from the user, like mouse clicks, button presses, and change some visual aspect
+// of those basic shapes. Maybe change the color, or position, or even trigger an animation!
+
 public class Game
 {
     // Variables needed to set up raylib
@@ -23,6 +33,6 @@ public class Game
     // Update runs every frame.
     public void Update()
     {
-        Draw.Circle(new(100, 50), 25, Color.Red);
+
     }
 }
