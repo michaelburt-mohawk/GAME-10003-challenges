@@ -5,7 +5,9 @@
 // You have a wallet with some amount of money. Make sure you have enough money to buy the item you want!
 // Present a nice printout at the end detailing the transaction, and what's in your inventory.
 //
-// HARD CHALLENGE: Do some research and figure out how to make this code better with loops and arrays!
+// HARD CHALLENGE
+// Do some research and figure out how to make this code better with loops and arrays!
+
 
 // things the player has
 int wallet = 11450;
