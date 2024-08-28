@@ -1,11 +1,11 @@
 ﻿// MODULE 1A CHALLENGE
-// Design a text-based interaction with a shop that sells at least 3 items.
-// Each item has a price and a quantity. Present these options to you, the consumer, as a numbered list.
-// You have a "wallet" with some amount of money. Make sure you have enough money to buy!
+//
+// Design a text-based interaction with a shop that has at least 3 items in stock. You will buy one item.
+// Each item has a price and a quantity. Present these options as a numbered list.
+// You have a wallet with some amount of money. Make sure you have enough money to buy the item you want!
 // Present a nice printout at the end detailing the transaction, and what's in your inventory.
-
-// this solution is not a good one. it does not use loops or arrays
-// the hard solution shows how powerful these programming features are!
+//
+// HARD CHALLENGE: Do some research and figure out how to make this code better with loops and arrays!
 
 // things the player has
 int wallet = 11450;
