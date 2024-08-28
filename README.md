@@ -1,7 +1,7 @@
 # GAME-10003-challenges
 
-## Module 1A ##
-MODULE 1A CHALLENGE
+## Module 1A/1B ##
+MODULE 1A/1B CHALLENGE
 
 Design a text-based interaction with a shop that has at least 3 items in stock. You will buy one item.
 Each item has a price and a quantity. Present these options as a numbered list.
