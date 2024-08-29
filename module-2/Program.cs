@@ -23,17 +23,20 @@ public class Program
         // Create game instance
         Game game = new();
 
-        Raylib.InitWindow(game.screenWidth, game.screenHeight, game.title);
+        // this is an advanced "post-processing" feature
+        // https://en.wikipedia.org/wiki/Multisample_anti-aliasing
+        Raylib.SetConfigFlags(ConfigFlags.Msaa4xHint);
+        
+        Raylib.InitWindow(game.ScreenWidth, game.ScreenHeight, game.Title);
         Raylib.InitAudioDevice();
-        Raylib.SetTargetFPS(game.targetFps);
-        Text.Initialize();
+        Raylib.SetTargetFPS(game.TargetFps);
 
         game.Setup();
         while (!Raylib.WindowShouldClose())
         {
-            Raylib.SetWindowSize(game.screenWidth, game.screenHeight);
+            Raylib.SetWindowSize(game.ScreenWidth, game.ScreenHeight);
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(game.backgroundColor);
+            Raylib.ClearBackground(game.BackgroundColor);
             game.Update();
             Raylib.EndDrawing();
         }
