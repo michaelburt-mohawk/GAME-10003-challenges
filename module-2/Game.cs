@@ -58,6 +58,7 @@ public class Game
         //DebugMouseCoords();
         
         Raylib.DrawTextEx(font, "Causal Patterns", new(120, 70), 50, 3.0f, Color.Black);
+        Raylib.DrawTextEx(font, $"Left click to see an animation!", new(120, 140), 15, 3.0f, Color.Black);
 
         Raylib.DrawCircle(firstX, firstY, firstRadius, firstColor);
 
@@ -73,12 +74,14 @@ public class Game
 
         Raylib.DrawCircle(thirdX, firstY, thirdRadius, thirdColor);
 
-        // HARD CHALLENGE.. how to animate this graphic?
+        // HARD CHALLENGE.. how to interact and animate this graphic?
+        if (Raylib.IsMouseButtonDown(MouseButton.Left))
+        {
+            // get the time since the window was initialized
+            double t = Raylib.GetTime();
 
-        // get the time since the window was initialized
-        double t = Raylib.GetTime();
-
-        // we'll learn about the cosine and sin functions later
-        firstRadius = 100.0f + 20.0f * (float)Math.Sin(3.0 * t);
+            // we'll learn about the cosine and sin functions later
+            firstRadius = 100.0f + 20.0f * (float)Math.Sin(3.0 * t);
+        }
     }
 }
