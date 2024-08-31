@@ -10,6 +10,11 @@
  * History:
  *      2024/05/26: Initial version
  *      2024/08/31: Minimal working example of a spritesheet
+ *      
+ * Attribution:
+ *      Fantasy Knight - by aamatniekss on itch.io
+ *      sprites in assets/ folder
+ *      https://aamatniekss.itch.io/fantasy-knight-free-pixelart-animated-character
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
