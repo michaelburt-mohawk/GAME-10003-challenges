@@ -39,7 +39,6 @@ public class Game
     // Setup runs once before the game loop begins.
     public void Setup()
     {
-        Text.Size = 50;
         font = Text.LoadFont("Fonts/RAVIE.ttf");
     }
 
@@ -90,9 +89,6 @@ public class Game
         // HARD CHALLENGE.. how to interact and animate this graphic?
         if (Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)MouseButton.Left))
         {
-            // get the time since the window was initialized
-            double t = Raylib.GetTime();
-
             // we'll learn about the cosine and sin functions later
             firstRadius = 100.0f + 20.0f * (float)Math.Sin(3.0 * Time.Elapsed);
         }
