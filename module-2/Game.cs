@@ -14,17 +14,17 @@ using System.Numerics;
 
 public class Game
 {
-    private const int V = 0;
-
     // Variables needed to set up raylib
-    public string Title = "Game Title";
-    public int ScreenWidth = 800;
-    public int ScreenHeight = 600;
-    public int TargetFps = 60;
-    public Color BackgroundColor = new Color(250, 200, 210, 255);
+    public string title = "Module 2 Challenge: Graphic Design";
+    public int screenWidth = 800;
+    public int screenHeight = 600;
 
     // Place your variables here
+    
+    // load a custom font
     Font font;
+
+    public Color backgroundColor = new Color(250, 200, 210, 255);
 
     // you can use something as simple as Microsoft Paint to play around with colors and get their values
     Color firstColor = new Color(92, 81, 156, 255);
@@ -39,49 +39,62 @@ public class Game
     // Setup runs once before the game loop begins.
     public void Setup()
     {
-        font = Raylib.LoadFontEx("Fonts/RAVIE.ttf", 50, null, 0);
-
+        Text.Size = 50;
+        font = Text.LoadFont("Fonts/RAVIE.ttf");
     }
 
     public void DebugMouseCoords()
     {
         int mouseX = Raylib.GetMouseX();
         int mouseY = Raylib.GetMouseY();
-        Raylib.DrawTextEx(font, $"{mouseX}, {mouseY}", new(20, 20), 20, 3.0f, Color.Black);
 
+        Text.Size = 20;
+        Text.Color = Color.Black;
+        Text.Kerning = 3;
+        Text.Font = font;
+        Text.Rotation = 0;
+        Text.Draw($"{mouseX}, {mouseY}", new(20, 20));
     }
 
     // Update runs every frame.
     public void Update()
     {
-        // try uncommenting this!
-        //DebugMouseCoords();
-        
-        Raylib.DrawTextEx(font, "Causal Patterns", new(120, 70), 50, 3.0f, Color.Black);
-        Raylib.DrawTextEx(font, $"Left click to see an animation!", new(120, 140), 15, 3.0f, Color.Black);
+        Raylib.ClearBackground(backgroundColor);
 
-        Raylib.DrawCircle(firstX, firstY, firstRadius, firstColor);
+        // try uncommenting this!
+        DebugMouseCoords();
+
+        Text.Size = 50;
+        Text.Draw("Causal Patterns", new(120, 70));
+
+        Text.Size = 15;
+        Text.Draw("Left click to see an animation!", new(120, 140));
+
+        Draw.FillColor = firstColor;
+        Draw.Circle(firstX, firstY, firstRadius);
 
         float secondRadius = firstRadius / 2;
 
         // this is called a "cast". we are forcing the float to be an int
         int secondX = firstX + (int)secondRadius;
-        
-        Raylib.DrawCircle(secondX, firstY, secondRadius, secondColor);
+
+        Draw.FillColor = secondColor;
+        Draw.Circle(secondX, firstY, secondRadius);
 
         float thirdRadius = secondRadius / 2;
         int thirdX = secondX + (int)thirdRadius;
 
-        Raylib.DrawCircle(thirdX, firstY, thirdRadius, thirdColor);
+        Draw.FillColor = thirdColor;
+        Draw.Circle(thirdX, firstY, thirdRadius);
 
         // HARD CHALLENGE.. how to interact and animate this graphic?
-        if (Raylib.IsMouseButtonDown(MouseButton.Left))
+        if (Raylib.IsMouseButtonDown((Raylib_cs.MouseButton)MouseButton.Left))
         {
             // get the time since the window was initialized
             double t = Raylib.GetTime();
 
             // we'll learn about the cosine and sin functions later
-            firstRadius = 100.0f + 20.0f * (float)Math.Sin(3.0 * t);
+            firstRadius = 100.0f + 20.0f * (float)Math.Sin(3.0 * Time.Elapsed);
         }
     }
 }

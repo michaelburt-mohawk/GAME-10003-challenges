@@ -13,13 +13,9 @@
  *////////////////////////////////////////////////////////////////////////
 
 using Raylib_cs;
-using System;
-using System.IO;
 
 public class Program
 {
-    public static Font monospaceFont;
-
     static void Main()
     {
         // Create game instance
@@ -29,18 +25,23 @@ public class Program
         // https://en.wikipedia.org/wiki/Multisample_anti-aliasing
         Raylib.SetConfigFlags(ConfigFlags.Msaa4xHint);
         
-        Raylib.InitWindow(game.ScreenWidth, game.ScreenHeight, game.Title);
+        Raylib.InitWindow(game.screenWidth, game.screenHeight, game.title);
         Raylib.InitAudioDevice();
-        Raylib.SetTargetFPS(game.TargetFps);
+        Raylib.SetTargetFPS(Time.TargetFPS);
+        Text.Initialize();
 
         game.Setup();
         while (!Raylib.WindowShouldClose())
         {
-            Raylib.SetWindowSize(game.ScreenWidth, game.ScreenHeight);
+            // Update music buffers every frame
+            foreach (var music in Audio.ActiveMusic)
+                Raylib.UpdateMusicStream(music);
+
+            Raylib.SetWindowSize(game.screenWidth, game.screenHeight);
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(game.BackgroundColor);
             game.Update();
             Raylib.EndDrawing();
+            Time.ElapsedFrames++;
         }
 
         Raylib.CloseAudioDevice();
